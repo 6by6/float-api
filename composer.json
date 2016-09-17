@@ -1,6 +1,6 @@
 {
-    "name": "6by6/float-sdk",
-    "description": "PHP SDK for the Float Resourcing App",
+    "name": "6by6/float-api",
+    "description": "PHP API for the Float Resourcing App",
     "type": "library",
     "license": "MIT",
     "authors": [
