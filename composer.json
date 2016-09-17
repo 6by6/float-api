@@ -1,0 +1,25 @@
+{
+    "name": "6by6/float-sdk",
+    "description": "PHP SDK for the Float Resourcing App",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Daniel Ness",
+            "email": "daniel@sixbysix.co.uk"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "jms/serializer": "^1.1",
+        "guzzlehttp/guzzle": "~6.0"
+    },
+    "autoload" : {
+        "psr-4" : {
+            "SixBySix\\Float\\" : ""
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.5"
+    }
+}
