@@ -537,7 +537,7 @@ class Person extends AbstractResourceEntity
         $this->active = $active;
         return $this;
     }
-
+    
     public static function getResourceName()
     {
         return 'people';
@@ -546,5 +546,15 @@ class Person extends AbstractResourceEntity
     public static function getResourceEndpoint()
     {
         return 'people';
+    }
+
+    public static function getIdKey()
+    {
+        return 'people_id';
+    }
+
+    public static function getIdProp()
+    {
+        return 'peopleId';
     }
 }

@@ -470,4 +470,14 @@ class Task extends AbstractResourceEntity
     {
         return 'tasks';
     }
+
+    public static function getIdKey()
+    {
+        return 'task_id';
+    }
+
+    public static function getIdProp()
+    {
+        return 'taskId';
+    }
 }

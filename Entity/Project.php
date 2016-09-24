@@ -409,4 +409,14 @@ class Project extends AbstractResourceEntity
     {
         return 'projects';
     }
+
+    public static function getIdKey()
+    {
+        return 'project_id';
+    }
+
+    public static function getIdProp()
+    {
+        return 'projectId';
+    }
 }

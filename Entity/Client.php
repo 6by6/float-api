@@ -192,4 +192,14 @@ class Client extends AbstractResourceEntity
     {
         return 'clients';
     }
+
+    public static function getIdKey()
+    {
+        return 'client_id';
+    }
+
+    public static function getIdProp()
+    {
+        return 'clientId';
+    }
 }

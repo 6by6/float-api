@@ -5,6 +5,7 @@ namespace SixBySix\Float\Entity;
 use JMS\Serializer\DeserializationContext;
 use JMS\Serializer\Serializer;
 use JMS\Serializer\SerializerBuilder;
+use SixBySix\Float\Exception;
 use SixBySix\Float\FloatClient;
 
 abstract class AbstractEntity
@@ -41,6 +42,12 @@ abstract class AbstractEntity
 
         /** @var mixed $response */
         $response = FloatClient::get($resource);
+
+        if (sizeof($response) == 0) {
+            throw new Exception\EntityNotFoundException(
+                sprintf("%s with ID %d does not exist", static::class, $id)
+            );
+        }
 
         /** @var AbstractEntity $entity */
         $entity = static::deserialize($response);

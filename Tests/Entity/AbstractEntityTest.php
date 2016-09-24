@@ -20,8 +20,11 @@ abstract class AbstractEntityTest extends TestCase
      */
     public function getAll()
     {
+        /** @var string $class */
+        $class = $this->getClass();
+
         /** @var AbstractEntity[] $collection */
-        $collection = ($this->getClass())::getAll();
+        $collection = $class::getAll();
         $this->assertInternalType('array', $collection);
         $this->assertContainsOnlyInstancesOf($this->getClass(), $collection);
 
@@ -40,8 +43,11 @@ abstract class AbstractEntityTest extends TestCase
      */
     public function getOne()
     {
+        /** @var string $class */
+        $class = $this->getClass();
+
         /** @var AbstractEntity $entity */
-        $entity = ($this->getClass())::getById(static::$oneEntityId);
+        $entity = $class::getById(static::$oneEntityId);
         $this->assertInstanceOf($this->getClass(), $entity);
     }
 

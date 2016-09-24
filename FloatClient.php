@@ -77,9 +77,12 @@ class FloatClient
         return $json;
     }
 
-    public static function delete()
+    public static function delete($resource)
     {
+        /** @var array $opts */
+        $opts = static::prepareRequestOpts([]);
 
+        self::getHttpClient()->delete($resource, $opts);
     }
 
     protected static function prepareRequestOpts(array $opts = [])

@@ -147,4 +147,14 @@ class Milestone extends AbstractResourceEntity
     {
         return 'milestones';
     }
+
+    public static function getIdKey()
+    {
+        return 'milestone_id';
+    }
+
+    public static function getIdProp()
+    {
+        return 'milestoneId';
+    }
 }

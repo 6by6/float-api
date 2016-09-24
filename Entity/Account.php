@@ -202,4 +202,14 @@ class Account extends AbstractResourceEntity
     {
         return 'accounts';
     }
+
+    public static function getIdKey()
+    {
+        return 'account_id';
+    }
+
+    public static function getIdProp()
+    {
+        return 'setAccountId';
+    }
 }

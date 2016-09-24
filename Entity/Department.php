@@ -62,7 +62,7 @@ class Department extends AbstractResourceEntity
         $this->name = $name;
         return $this;
     }
-
+    
     public static function getResourceName()
     {
         return 'departments';
@@ -71,6 +71,16 @@ class Department extends AbstractResourceEntity
     public static function getResourceEndpoint()
     {
         return 'departments';
+    }
+
+    public static function getIdKey()
+    {
+        return 'department_id';
+    }
+
+    public static function getIdProp()
+    {
+        return 'departmentId';
     }
 
     public static function getAll(array $opts = [])
