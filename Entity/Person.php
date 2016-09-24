@@ -5,7 +5,7 @@ namespace SixBySix\Float\Entity;
 use JMS\Serializer\Annotation\Groups;
 use JMS\Serializer\Annotation\Type;
 
-class Person extends AbstractEntity implements ResourceInterface
+class Person extends AbstractResourceEntity
 {
 
     /**
@@ -170,10 +170,12 @@ class Person extends AbstractEntity implements ResourceInterface
 
     /**
      * @param int $peopleId
+     * @return Person
      */
     public function setPeopleId($peopleId)
     {
         $this->peopleId = $peopleId;
+        return $this;
     }
 
     /**
@@ -186,10 +188,12 @@ class Person extends AbstractEntity implements ResourceInterface
 
     /**
      * @param string $name
+     * @return Person
      */
     public function setName($name)
     {
         $this->name = $name;
+        return $this;
     }
 
     /**
@@ -202,10 +206,12 @@ class Person extends AbstractEntity implements ResourceInterface
 
     /**
      * @param string $jobTitle
+     * @return Person
      */
     public function setJobTitle($jobTitle)
     {
         $this->jobTitle = $jobTitle;
+        return $this;
     }
 
     /**
@@ -218,10 +224,12 @@ class Person extends AbstractEntity implements ResourceInterface
 
     /**
      * @param string $avatarFile
+     * @return Person
      */
     public function setAvatarFile($avatarFile)
     {
         $this->avatarFile = $avatarFile;
+        return $this;
     }
 
     /**
@@ -234,10 +242,12 @@ class Person extends AbstractEntity implements ResourceInterface
 
     /**
      * @param Department[] $departments
+     * @return Person
      */
     public function setDepartments($departments)
     {
         $this->departments = $departments;
+        return $this;
     }
 
     /**
@@ -250,10 +260,12 @@ class Person extends AbstractEntity implements ResourceInterface
 
     /**
      * @param Skill[] $skills
+     * @return Person
      */
     public function setSkills($skills)
     {
         $this->skills = $skills;
+        return $this;
     }
 
     /**
@@ -266,10 +278,12 @@ class Person extends AbstractEntity implements ResourceInterface
 
     /**
      * @param string $email
+     * @return Person
      */
     public function setEmail($email)
     {
         $this->email = $email;
+        return $this;
     }
 
     /**
@@ -282,10 +296,12 @@ class Person extends AbstractEntity implements ResourceInterface
 
     /**
      * @param string $description
+     * @return Person
      */
     public function setDescription($description)
     {
         $this->description = $description;
+        return $this;
     }
 
     /**
@@ -298,10 +314,12 @@ class Person extends AbstractEntity implements ResourceInterface
 
     /**
      * @param string $mobile
+     * @return Person
      */
     public function setMobile($mobile)
     {
         $this->mobile = $mobile;
+        return $this;
     }
 
     /**
@@ -314,10 +332,12 @@ class Person extends AbstractEntity implements ResourceInterface
 
     /**
      * @param string $telephone
+     * @return Person
      */
     public function setTelephone($telephone)
     {
         $this->telephone = $telephone;
+        return $this;
     }
 
     /**
@@ -330,10 +350,12 @@ class Person extends AbstractEntity implements ResourceInterface
 
     /**
      * @param string $im
+     * @return Person
      */
     public function setIm($im)
     {
         $this->im = $im;
+        return $this;
     }
 
     /**
@@ -346,10 +368,12 @@ class Person extends AbstractEntity implements ResourceInterface
 
     /**
      * @param float $wkDayHrs
+     * @return Person
      */
     public function setWkDayHrs($wkDayHrs)
     {
         $this->wkDayHrs = $wkDayHrs;
+        return $this;
     }
 
     /**
@@ -362,10 +386,12 @@ class Person extends AbstractEntity implements ResourceInterface
 
     /**
      * @param string $nonWkDays
+     * @return Person
      */
     public function setNonWkDays($nonWkDays)
     {
         $this->nonWkDays = $nonWkDays;
+        return $this;
     }
 
     /**
@@ -378,10 +404,12 @@ class Person extends AbstractEntity implements ResourceInterface
 
     /**
      * @param int $employeeType
+     * @return Person
      */
     public function setEmployeeType($employeeType)
     {
         $this->employeeType = $employeeType;
+        return $this;
     }
 
     /**
@@ -394,10 +422,12 @@ class Person extends AbstractEntity implements ResourceInterface
 
     /**
      * @param boolean $contractor
+     * @return Person
      */
     public function setContractor($contractor)
     {
         $this->contractor = $contractor;
+        return $this;
     }
 
     /**
@@ -410,10 +440,12 @@ class Person extends AbstractEntity implements ResourceInterface
 
     /**
      * @param int $accessRights
+     * @return Person
      */
     public function setAccessRights($accessRights)
     {
         $this->accessRights = $accessRights;
+        return $this;
     }
 
     /**
@@ -426,10 +458,12 @@ class Person extends AbstractEntity implements ResourceInterface
 
     /**
      * @param int $accessId
+     * @return Person
      */
     public function setAccessId($accessId)
     {
         $this->accessId = $accessId;
+        return $this;
     }
 
     /**
@@ -442,10 +476,12 @@ class Person extends AbstractEntity implements ResourceInterface
 
     /**
      * @param int $departmentFilterId
+     * @return Person
      */
     public function setDepartmentFilterId($departmentFilterId)
     {
         $this->departmentFilterId = $departmentFilterId;
+        return $this;
     }
 
     /**
@@ -458,10 +494,12 @@ class Person extends AbstractEntity implements ResourceInterface
 
     /**
      * @param boolean $autoEmail
+     * @return Person
      */
     public function setAutoEmail($autoEmail)
     {
         $this->autoEmail = $autoEmail;
+        return $this;
     }
 
     /**
@@ -474,10 +512,12 @@ class Person extends AbstractEntity implements ResourceInterface
 
     /**
      * @param \DateTime $created
+     * @return Person
      */
     public function setCreated($created)
     {
         $this->created = $created;
+        return $this;
     }
 
     /**
@@ -490,10 +530,12 @@ class Person extends AbstractEntity implements ResourceInterface
 
     /**
      * @param boolean $active
+     * @return Person
      */
     public function setActive($active)
     {
         $this->active = $active;
+        return $this;
     }
 
     public static function getResourceName()

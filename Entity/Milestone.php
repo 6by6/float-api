@@ -6,7 +6,7 @@ use JMS\Serializer\Annotation\Groups;
 use JMS\Serializer\Annotation\Type;
 use SixBySix\Float\FloatClient;
 
-class Milestone extends AbstractEntity implements ResourceInterface
+class Milestone extends AbstractResourceEntity
 {
     /**
      * @var int
@@ -51,33 +51,37 @@ class Milestone extends AbstractEntity implements ResourceInterface
     /**
      * @return int
      */
-    public function getMilestoneId()
+    public function getHolidayId()
     {
         return $this->holidayId;
     }
 
     /**
      * @param int $holidayId
+     * @return Milestone
      */
-    public function setMilestoneId($holidayId)
+    public function setHolidayId($holidayId)
     {
         $this->holidayId = $holidayId;
+        return $this;
     }
 
     /**
      * @return string
      */
-    public function getMilestoneName()
+    public function getHolidayName()
     {
         return $this->holidayName;
     }
 
     /**
      * @param string $holidayName
+     * @return Milestone
      */
-    public function setMilestoneName($holidayName)
+    public function setHolidayName($holidayName)
     {
         $this->holidayName = $holidayName;
+        return $this;
     }
 
     /**
@@ -90,10 +94,12 @@ class Milestone extends AbstractEntity implements ResourceInterface
 
     /**
      * @param \DateTime $date
+     * @return Milestone
      */
     public function setDate($date)
     {
         $this->date = $date;
+        return $this;
     }
 
     /**
@@ -106,10 +112,12 @@ class Milestone extends AbstractEntity implements ResourceInterface
 
     /**
      * @param \DateTime $endDate
+     * @return Milestone
      */
     public function setEndDate($endDate)
     {
         $this->endDate = $endDate;
+        return $this;
     }
 
     /**
@@ -122,10 +130,12 @@ class Milestone extends AbstractEntity implements ResourceInterface
 
     /**
      * @param int $dayDoy
+     * @return Milestone
      */
     public function setDayDoy($dayDoy)
     {
         $this->dayDoy = $dayDoy;
+        return $this;
     }
 
     public static function getResourceEndpoint()

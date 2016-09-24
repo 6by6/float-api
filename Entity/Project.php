@@ -6,7 +6,7 @@ use JMS\Serializer\Annotation\Groups;
 use JMS\Serializer\Annotation\Type;
 use SixBySix\Float\FloatClient;
 
-class Project extends AbstractEntity implements ResourceInterface
+class Project extends AbstractResourceEntity
 {
     /**
      * @var int
@@ -128,10 +128,12 @@ class Project extends AbstractEntity implements ResourceInterface
 
     /**
      * @param int $projectId
+     * @return Project
      */
     public function setProjectId($projectId)
     {
         $this->projectId = $projectId;
+        return $this;
     }
 
     /**
@@ -144,10 +146,12 @@ class Project extends AbstractEntity implements ResourceInterface
 
     /**
      * @param string $projectName
+     * @return Project
      */
     public function setProjectName($projectName)
     {
         $this->projectName = $projectName;
+        return $this;
     }
 
     /**
@@ -160,10 +164,12 @@ class Project extends AbstractEntity implements ResourceInterface
 
     /**
      * @param string $description
+     * @return Project
      */
     public function setDescription($description)
     {
         $this->description = $description;
+        return $this;
     }
 
     /**
@@ -176,10 +182,12 @@ class Project extends AbstractEntity implements ResourceInterface
 
     /**
      * @param string $color
+     * @return Project
      */
     public function setColor($color)
     {
         $this->color = $color;
+        return $this;
     }
 
     /**
@@ -192,10 +200,12 @@ class Project extends AbstractEntity implements ResourceInterface
 
     /**
      * @param boolean $common
+     * @return Project
      */
     public function setCommon($common)
     {
         $this->common = $common;
+        return $this;
     }
 
     /**
@@ -208,10 +218,12 @@ class Project extends AbstractEntity implements ResourceInterface
 
     /**
      * @param int $creatorId
+     * @return Project
      */
     public function setCreatorId($creatorId)
     {
         $this->creatorId = $creatorId;
+        return $this;
     }
 
     /**
@@ -224,10 +236,12 @@ class Project extends AbstractEntity implements ResourceInterface
 
     /**
      * @param boolean $tentative
+     * @return Project
      */
     public function setTentative($tentative)
     {
         $this->tentative = $tentative;
+        return $this;
     }
 
     /**
@@ -240,10 +254,12 @@ class Project extends AbstractEntity implements ResourceInterface
 
     /**
      * @param \DateTime $created
+     * @return Project
      */
     public function setCreated($created)
     {
         $this->created = $created;
+        return $this;
     }
 
     /**
@@ -256,10 +272,12 @@ class Project extends AbstractEntity implements ResourceInterface
 
     /**
      * @param \DateTime $modified
+     * @return Project
      */
     public function setModified($modified)
     {
         $this->modified = $modified;
+        return $this;
     }
 
     /**
@@ -272,10 +290,12 @@ class Project extends AbstractEntity implements ResourceInterface
 
     /**
      * @param int $clientId
+     * @return Project
      */
     public function setClientId($clientId)
     {
         $this->clientId = $clientId;
+        return $this;
     }
 
     /**
@@ -288,10 +308,12 @@ class Project extends AbstractEntity implements ResourceInterface
 
     /**
      * @param string $clientName
+     * @return Project
      */
     public function setClientName($clientName)
     {
         $this->clientName = $clientName;
+        return $this;
     }
 
     /**
@@ -304,10 +326,12 @@ class Project extends AbstractEntity implements ResourceInterface
 
     /**
      * @param \string[] $tags
+     * @return Project
      */
     public function setTags($tags)
     {
         $this->tags = $tags;
+        return $this;
     }
 
     /**
@@ -320,10 +344,12 @@ class Project extends AbstractEntity implements ResourceInterface
 
     /**
      * @param boolean $nonBillable
+     * @return Project
      */
     public function setNonBillable($nonBillable)
     {
         $this->nonBillable = $nonBillable;
+        return $this;
     }
 
     /**
@@ -336,10 +362,12 @@ class Project extends AbstractEntity implements ResourceInterface
 
     /**
      * @param boolean $active
+     * @return Project
      */
     public function setActive($active)
     {
         $this->active = $active;
+        return $this;
     }
 
     /**
@@ -352,10 +380,12 @@ class Project extends AbstractEntity implements ResourceInterface
 
     /**
      * @param Account[] $projectManagers
+     * @return Project
      */
     public function setProjectManagers($projectManagers)
     {
         $this->projectManagers = $projectManagers;
+        return $this;
     }
 
     public static function getAllArchived(array $opts = [])

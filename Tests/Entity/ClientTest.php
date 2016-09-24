@@ -10,4 +10,15 @@ class ClientTest extends AbstractEntityTest
     {
         return Client::class;
     }
+
+    /**
+     * @test
+     */
+    public function create()
+    {
+        $client = new Client();
+        $client->setClientName("ACME");
+        $client->setClientDesc("Purveyor of Fine Anvils");
+        $client->save();
+    }
 }

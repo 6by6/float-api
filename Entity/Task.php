@@ -6,7 +6,7 @@ use SixBySix\Float\FloatClient;
 use JMS\Serializer\Annotation\Groups;
 use JMS\Serializer\Annotation\Type;
 
-class Task extends AbstractEntity implements ResourceInterface
+class Task extends AbstractResourceEntity
 {
     /**
      * @var int
@@ -134,14 +134,6 @@ class Task extends AbstractEntity implements ResourceInterface
     }
 
     /**
-     * @param int $taskId
-     */
-    public function setTaskId($taskId)
-    {
-        $this->taskId = $taskId;
-    }
-
-    /**
      * @return string
      */
     public function getTaskName()
@@ -151,10 +143,12 @@ class Task extends AbstractEntity implements ResourceInterface
 
     /**
      * @param string $taskName
+     * @return Task
      */
     public function setTaskName($taskName)
     {
         $this->taskName = $taskName;
+        return $this;
     }
 
     /**
@@ -167,10 +161,12 @@ class Task extends AbstractEntity implements ResourceInterface
 
     /**
      * @param string $taskNotes
+     * @return Task
      */
     public function setTaskNotes($taskNotes)
     {
         $this->taskNotes = $taskNotes;
+        return $this;
     }
 
     /**
@@ -183,10 +179,12 @@ class Task extends AbstractEntity implements ResourceInterface
 
     /**
      * @param int $peopleId
+     * @return Task
      */
     public function setPeopleId($peopleId)
     {
         $this->peopleId = $peopleId;
+        return $this;
     }
 
     /**
@@ -199,10 +197,12 @@ class Task extends AbstractEntity implements ResourceInterface
 
     /**
      * @param string $personName
+     * @return Task
      */
     public function setPersonName($personName)
     {
         $this->personName = $personName;
+        return $this;
     }
 
     /**
@@ -215,10 +215,12 @@ class Task extends AbstractEntity implements ResourceInterface
 
     /**
      * @param int $projectId
+     * @return Task
      */
     public function setProjectId($projectId)
     {
         $this->projectId = $projectId;
+        return $this;
     }
 
     /**
@@ -231,10 +233,12 @@ class Task extends AbstractEntity implements ResourceInterface
 
     /**
      * @param string $projectName
+     * @return Task
      */
     public function setProjectName($projectName)
     {
         $this->projectName = $projectName;
+        return $this;
     }
 
     /**
@@ -247,10 +251,12 @@ class Task extends AbstractEntity implements ResourceInterface
 
     /**
      * @param string $clientName
+     * @return Task
      */
     public function setClientName($clientName)
     {
         $this->clientName = $clientName;
+        return $this;
     }
 
     /**
@@ -263,10 +269,12 @@ class Task extends AbstractEntity implements ResourceInterface
 
     /**
      * @param \DateTime $startDate
+     * @return Task
      */
     public function setStartDate($startDate)
     {
         $this->startDate = $startDate;
+        return $this;
     }
 
     /**
@@ -279,10 +287,12 @@ class Task extends AbstractEntity implements ResourceInterface
 
     /**
      * @param \DateTime $endDate
+     * @return Task
      */
     public function setEndDate($endDate)
     {
         $this->endDate = $endDate;
+        return $this;
     }
 
     /**
@@ -295,10 +305,12 @@ class Task extends AbstractEntity implements ResourceInterface
 
     /**
      * @param float $hoursPDay
+     * @return Task
      */
     public function setHoursPDay($hoursPDay)
     {
         $this->hoursPDay = $hoursPDay;
+        return $this;
     }
 
     /**
@@ -311,10 +323,12 @@ class Task extends AbstractEntity implements ResourceInterface
 
     /**
      * @param float $taskCalDays
+     * @return Task
      */
     public function setTaskCalDays($taskCalDays)
     {
         $this->taskCalDays = $taskCalDays;
+        return $this;
     }
 
     /**
@@ -327,10 +341,12 @@ class Task extends AbstractEntity implements ResourceInterface
 
     /**
      * @param string $createdBy
+     * @return Task
      */
     public function setCreatedBy($createdBy)
     {
         $this->createdBy = $createdBy;
+        return $this;
     }
 
     /**
@@ -343,10 +359,12 @@ class Task extends AbstractEntity implements ResourceInterface
 
     /**
      * @param int $creatorId
+     * @return Task
      */
     public function setCreatorId($creatorId)
     {
         $this->creatorId = $creatorId;
+        return $this;
     }
 
     /**
@@ -359,10 +377,12 @@ class Task extends AbstractEntity implements ResourceInterface
 
     /**
      * @param string $modifiedBy
+     * @return Task
      */
     public function setModifiedBy($modifiedBy)
     {
         $this->modifiedBy = $modifiedBy;
+        return $this;
     }
 
     /**
@@ -375,10 +395,12 @@ class Task extends AbstractEntity implements ResourceInterface
 
     /**
      * @param int $priority
+     * @return Task
      */
     public function setPriority($priority)
     {
         $this->priority = $priority;
+        return $this;
     }
 
     public static function getAll(array $opts = [])
@@ -388,6 +410,10 @@ class Task extends AbstractEntity implements ResourceInterface
         $response = FloatClient::get(static::getResourceName(), $opts);
 
         $collection = [];
+
+        if (sizeof($response) == 0) {
+            return $collection;
+        }
 
         foreach ($response['people'] as $person) {
             foreach ($person['tasks'] as $taskData) {

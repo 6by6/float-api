@@ -4,6 +4,7 @@ namespace SixBySix\Float;
 
 use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\Psr7\Response;
+use Psr\Http\Message\ResponseInterface;
 
 class FloatClient
 {
@@ -33,7 +34,52 @@ class FloatClient
         /** @var Response $response */
         $response = self::getHttpClient()->get($resource, $opts);
 
-        return json_decode("{$response->getBody()}", $assoc = true);
+        $response = json_decode("{$response->getBody()}", $assoc = true);
+
+        if (isset($response['count']) && $response['count'] == 0) {
+            return [];
+        }
+
+        return $response;
+    }
+
+    public static function post($resource, array $body = [], array $opts = [])
+    {
+        $opts['form_params'] = $body;
+        $opts = static::prepareRequestOpts($opts);
+
+        /** @var ResponseInterface $response */
+        $response = self::getHttpClient()->post($resource, $opts);
+
+        /** @var string $body */
+        $body = (string) $response->getBody();
+
+        /** @var array $json */
+        $json = json_decode($body, $assoc = true);
+
+        return $json;
+    }
+
+    public static function put($resource, array $body = [], array $opts = [])
+    {
+        $opts['form_params'] = $body;
+        $opts = static::prepareRequestOpts($opts);
+
+        /** @var ResponseInterface $response */
+        $response = self::getHttpClient()->put($resource, $opts);
+
+        /** @var string $body */
+        $body = (string) $response->getBody();
+
+        /** @var array $json */
+        $json = json_decode($body, $assoc = true);
+
+        return $json;
+    }
+
+    public static function delete()
+    {
+
     }
 
     protected static function prepareRequestOpts(array $opts = [])

@@ -6,7 +6,7 @@ use JMS\Serializer\Annotation\Groups;
 use JMS\Serializer\Annotation\Type;
 use SixBySix\Float\FloatClient;
 
-class Department extends AbstractEntity implements ResourceInterface
+class Department extends AbstractResourceEntity
 {
     /**
      * @var int
@@ -22,6 +22,11 @@ class Department extends AbstractEntity implements ResourceInterface
      */
     protected $name;
 
+    public function getId()
+    {
+        return $this->getDepartmentId();
+    }
+
     /**
      * @return int
      */
@@ -32,10 +37,12 @@ class Department extends AbstractEntity implements ResourceInterface
 
     /**
      * @param int $departmentId
+     * @return Department
      */
     public function setDepartmentId($departmentId)
     {
         $this->departmentId = $departmentId;
+        return $this;
     }
 
     /**
@@ -48,15 +55,12 @@ class Department extends AbstractEntity implements ResourceInterface
 
     /**
      * @param string $name
+     * @return Department
      */
     public function setName($name)
     {
         $this->name = $name;
-    }
-
-    public function getId()
-    {
-        return $this->getDepartmentId();
+        return $this;
     }
 
     public static function getResourceName()
@@ -76,6 +80,10 @@ class Department extends AbstractEntity implements ResourceInterface
         $response = FloatClient::get(static::getResourceName(), $opts);
 
         $collection = [];
+
+        if (sizeof($response) == 0) {
+            return $collection;
+        }
 
         foreach ($response as $deptData) {
             $collection[] = static::deserialize($deptData);

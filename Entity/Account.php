@@ -6,7 +6,7 @@ use JMS\Serializer\Annotation\Groups;
 use JMS\Serializer\Annotation\Type;
 use SixBySix\Float\FloatClient;
 
-class Account extends AbstractEntity implements ResourceInterface
+class Account extends AbstractResourceEntity
 {
     /**
      * @var int
@@ -106,27 +106,11 @@ class Account extends AbstractEntity implements ResourceInterface
     }
 
     /**
-     * @param int $accountId
-     */
-    public function setAccountId($accountId)
-    {
-        $this->accountId = $accountId;
-    }
-
-    /**
      * @return string
      */
     public function getName()
     {
         return $this->name;
-    }
-
-    /**
-     * @param string $name
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
     }
 
     /**
@@ -138,27 +122,11 @@ class Account extends AbstractEntity implements ResourceInterface
     }
 
     /**
-     * @param string $email
-     */
-    public function setEmail($email)
-    {
-        $this->email = $email;
-    }
-
-    /**
      * @return int
      */
     public function getAccountTypeId()
     {
         return $this->accountTypeId;
-    }
-
-    /**
-     * @param int $accountTypeId
-     */
-    public function setAccountTypeId($accountTypeId)
-    {
-        $this->accountTypeId = $accountTypeId;
     }
 
     /**
@@ -170,27 +138,11 @@ class Account extends AbstractEntity implements ResourceInterface
     }
 
     /**
-     * @param string $accountTypeName
-     */
-    public function setAccountTypeName($accountTypeName)
-    {
-        $this->accountTypeName = $accountTypeName;
-    }
-
-    /**
      * @return int
      */
     public function getDepartmentFilterId()
     {
         return $this->departmentFilterId;
-    }
-
-    /**
-     * @param int $departmentFilterId
-     */
-    public function setDepartmentFilterId($departmentFilterId)
-    {
-        $this->departmentFilterId = $departmentFilterId;
     }
 
     /**
@@ -202,27 +154,11 @@ class Account extends AbstractEntity implements ResourceInterface
     }
 
     /**
-     * @param int $peopleId
-     */
-    public function setPeopleId($peopleId)
-    {
-        $this->peopleId = $peopleId;
-    }
-
-    /**
      * @return string
      */
     public function getSsoEmail()
     {
         return $this->ssoEmail;
-    }
-
-    /**
-     * @param string $ssoEmail
-     */
-    public function setSsoEmail($ssoEmail)
-    {
-        $this->ssoEmail = $ssoEmail;
     }
 
     /**
@@ -234,27 +170,11 @@ class Account extends AbstractEntity implements ResourceInterface
     }
 
     /**
-     * @param string $ssoType
-     */
-    public function setSsoType($ssoType)
-    {
-        $this->ssoType = $ssoType;
-    }
-
-    /**
      * @return \DateTime
      */
     public function getCreated()
     {
         return $this->created;
-    }
-
-    /**
-     * @param \DateTime $created
-     */
-    public function setCreated($created)
-    {
-        $this->created = $created;
     }
 
     /**
@@ -266,27 +186,11 @@ class Account extends AbstractEntity implements ResourceInterface
     }
 
     /**
-     * @param \DateTime $modified
-     */
-    public function setModified($modified)
-    {
-        $this->modified = $modified;
-    }
-
-    /**
      * @return boolean
      */
     public function isAccepted()
     {
         return $this->accepted;
-    }
-
-    /**
-     * @param boolean $accepted
-     */
-    public function setAccepted($accepted)
-    {
-        $this->accepted = $accepted;
     }
 
     public static function getResourceName()

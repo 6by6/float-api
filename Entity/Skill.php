@@ -20,4 +20,20 @@ class Skill extends AbstractEntity
      * @Groups({"get", "update", "add"})
      */
     protected $level;
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @return int
+     */
+    public function getLevel()
+    {
+        return $this->level;
+    }
 }

@@ -22,6 +22,10 @@ abstract class AbstractEntity
 
         $collection = [];
 
+        if (sizeof($response) === 0) {
+            return $collection;
+        }
+
         foreach ($response[static::getResourceName()] as $entityData) {
             $entity = static::deserialize($entityData);
             $collection[] = $entity;
@@ -44,8 +48,7 @@ abstract class AbstractEntity
         return $entity;
     }
 
-
-    protected static function deserialize($data)
+    public static function deserialize($data)
     {
         return static::getSerializer()->fromArray(
             $data,

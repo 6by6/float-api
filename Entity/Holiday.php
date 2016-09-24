@@ -6,7 +6,7 @@ use JMS\Serializer\Annotation\Groups;
 use JMS\Serializer\Annotation\Type;
 use SixBySix\Float\FloatClient;
 
-class Holiday extends AbstractEntity implements ResourceInterface
+class Holiday extends AbstractResourceEntity
 {
     /**
      * @var int
@@ -58,10 +58,12 @@ class Holiday extends AbstractEntity implements ResourceInterface
 
     /**
      * @param int $holidayId
+     * @return Holiday
      */
     public function setHolidayId($holidayId)
     {
         $this->holidayId = $holidayId;
+        return $this;
     }
 
     /**
@@ -74,10 +76,12 @@ class Holiday extends AbstractEntity implements ResourceInterface
 
     /**
      * @param string $holidayName
+     * @return Holiday
      */
     public function setHolidayName($holidayName)
     {
         $this->holidayName = $holidayName;
+        return $this;
     }
 
     /**
@@ -90,10 +94,12 @@ class Holiday extends AbstractEntity implements ResourceInterface
 
     /**
      * @param \DateTime $date
+     * @return Holiday
      */
     public function setDate($date)
     {
         $this->date = $date;
+        return $this;
     }
 
     /**
@@ -106,10 +112,12 @@ class Holiday extends AbstractEntity implements ResourceInterface
 
     /**
      * @param \DateTime $endDate
+     * @return Holiday
      */
     public function setEndDate($endDate)
     {
         $this->endDate = $endDate;
+        return $this;
     }
 
     /**
@@ -122,10 +130,12 @@ class Holiday extends AbstractEntity implements ResourceInterface
 
     /**
      * @param int $dayDoy
+     * @return Holiday
      */
     public function setDayDoy($dayDoy)
     {
         $this->dayDoy = $dayDoy;
+        return $this;
     }
 
     public static function getResourceEndpoint()

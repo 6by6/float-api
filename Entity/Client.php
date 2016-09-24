@@ -5,7 +5,7 @@ namespace SixBySix\Float\Entity;
 use JMS\Serializer\Annotation\Groups;
 use JMS\Serializer\Annotation\Type;
 
-class Client extends AbstractEntity implements ResourceInterface
+class Client extends AbstractResourceEntity
 {
 
     /**
@@ -87,10 +87,12 @@ class Client extends AbstractEntity implements ResourceInterface
 
     /**
      * @param int $companyId
+     * @return $this
      */
     public function setCompanyId($companyId)
     {
         $this->companyId = $companyId;
+        return $this;
     }
 
     /**
@@ -103,10 +105,12 @@ class Client extends AbstractEntity implements ResourceInterface
 
     /**
      * @param string $clientName
+     * @return $this
      */
     public function setClientName($clientName)
     {
         $this->clientName = $clientName;
+        return $this;
     }
 
     /**
@@ -119,10 +123,12 @@ class Client extends AbstractEntity implements ResourceInterface
 
     /**
      * @param string $clientDesc
+     * @return $this
      */
     public function setClientDesc($clientDesc)
     {
         $this->clientDesc = $clientDesc;
+        return $this;
     }
 
     /**
@@ -135,10 +141,12 @@ class Client extends AbstractEntity implements ResourceInterface
 
     /**
      * @param int $creatorId
+     * @return $this
      */
     public function setCreatorId($creatorId)
     {
         $this->creatorId = $creatorId;
+        return $this;
     }
 
     /**
@@ -147,14 +155,6 @@ class Client extends AbstractEntity implements ResourceInterface
     public function getCreated()
     {
         return $this->created;
-    }
-
-    /**
-     * @param \DateTime $created
-     */
-    public function setCreated($created)
-    {
-        $this->created = $created;
     }
 
     /**
@@ -167,10 +167,12 @@ class Client extends AbstractEntity implements ResourceInterface
 
     /**
      * @param boolean $active
+     * @return $this
      */
     public function setActive($active)
     {
         $this->active = $active;
+        return $this;
     }
 
     /**
@@ -179,14 +181,6 @@ class Client extends AbstractEntity implements ResourceInterface
     public function getModified()
     {
         return $this->modified;
-    }
-
-    /**
-     * @param \DateTime $modified
-     */
-    public function setModified($modified)
-    {
-        $this->modified = $modified;
     }
 
     public static function getResourceName()
