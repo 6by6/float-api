@@ -37,6 +37,11 @@ class Task extends AbstractResourceEntity
     protected $peopleId;
 
     /**
+     * @var Person
+     */
+    protected $person;
+
+    /**
      * @var string
      * @Type("string")
      * @Groups({"update", "post", "get"})
@@ -49,6 +54,11 @@ class Task extends AbstractResourceEntity
      * @Groups({"update", "post", "get"})
      */
     protected $projectId;
+
+    /**
+     * @var Project
+     */
+    protected $project;
 
     /**
      * @var string
@@ -105,6 +115,11 @@ class Task extends AbstractResourceEntity
      * @Groups({"update", "post", "get"})
      */
     protected $creatorId;
+
+    /**
+     * @var Account
+     */
+    protected $creator;
 
     /**
      * @var string
@@ -220,6 +235,7 @@ class Task extends AbstractResourceEntity
     public function setProjectId($projectId)
     {
         $this->projectId = $projectId;
+        $this->project = null;
         return $this;
     }
 
@@ -403,6 +419,70 @@ class Task extends AbstractResourceEntity
         return $this;
     }
 
+    /**
+     * @return Person
+     */
+    public function getPerson()
+    {
+        if (!$this->person) {
+            $this->person = Person::getById($this->peopleId);
+        }
+        return $this->person;
+    }
+
+    /**
+     * @param Person $person
+     */
+    public function setPerson($person)
+    {
+        $this->person = $person;
+        $this->peopleId = $person->getId();
+    }
+
+    /**
+     * @return Project
+     */
+    public function getProject()
+    {
+        if (!$this->project) {
+            $this->project = Project::getById($this->getProjectId());
+        }
+        return $this->project;
+    }
+
+    /**
+     * @param Project $project
+     * @return $this
+     */
+    public function setProject($project)
+    {
+        $this->project = $project;
+        $this->projectId = $project->getId();
+        return $this;
+    }
+
+    /**
+     * @return Account
+     */
+    public function getCreator()
+    {
+        if (!$this->creator) {
+            $this->creator = Account::getById($this->getCreatorId());
+        }
+        return $this->creator;
+    }
+
+    /**
+     * @param Account $creator
+     * @return $this
+     */
+    public function setCreator($creator)
+    {
+        $this->creator = $creator;
+        $this->creatorId = $creator->getId();
+        return $this;
+    }
+
     public static function getAll(array $opts = [])
     {
         $opts = static::formatQueryOpts($opts);
@@ -424,8 +504,12 @@ class Task extends AbstractResourceEntity
         return $collection;
     }
 
-    public static function getByPersonId($personId, \DateTime $startDay = null, $weeks = null)
+    public static function getByPerson($person, \DateTime $startDay = null, $weeks = null)
     {
+        /** @var int $personId */
+        $personId = ($person instanceof Person) ? $person->getId() : (int) $person;
+
+        /** @var array $opts */
         $opts = [
             'people_id' => $personId,
             'start_day' => $startDay,
@@ -433,11 +517,6 @@ class Task extends AbstractResourceEntity
         ];
 
         return static::getAll($opts);
-    }
-
-    public static function getByPerson(Person $person, \DateTime $startDay = null, $weeks = null)
-    {
-        return static::getByPersonId($person->getId(), $startDay, $weeks);
     }
 
     public static function formatQueryOpts(array $opts)
