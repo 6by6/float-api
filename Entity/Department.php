@@ -13,7 +13,7 @@ class Department extends AbstractResourceEntity
      * @Type("integer")
      * @Groups({"get", "update", "add"})
      */
-    protected $departmentId;
+    protected $id;
 
     /**
      * @var string
@@ -24,7 +24,7 @@ class Department extends AbstractResourceEntity
 
     public function getId()
     {
-        return $this->getDepartmentId();
+        return $this->id;
     }
 
     /**
@@ -32,19 +32,9 @@ class Department extends AbstractResourceEntity
      */
     public function getDepartmentId()
     {
-        return $this->departmentId;
+        return $this->getId();
     }
-
-    /**
-     * @param int $departmentId
-     * @return Department
-     */
-    public function setDepartmentId($departmentId)
-    {
-        $this->departmentId = $departmentId;
-        return $this;
-    }
-
+    
     /**
      * @return string
      */
