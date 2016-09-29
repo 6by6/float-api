@@ -28,7 +28,10 @@ class ProjectTest extends AbstractEntityTest
 
         $this->assertEquals(223, $project->getId());
         $this->assertEquals("iPhone App", $project->getProjectName());
-        $this->assertEquals("Marquee project for us. Need to consider a contractor with app dev skills.", $project->getDescription());
+        $this->assertEquals(
+            "Marquee project for us. Need to consider a contractor with app dev skills.",
+            $project->getDescription()
+        );
         $this->assertEquals("9e7fba", $project->getColor());
         $this->assertEquals(212, $project->getClientId());
         $this->assertEquals("Violet City", $project->getClientName());
@@ -42,7 +45,6 @@ class ProjectTest extends AbstractEntityTest
         foreach ($project->getProjectManagers() as $projectManager) {
             $this->assertInstanceOf(Account::class, $projectManager);
         }
-
     }
 
 
