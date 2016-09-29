@@ -537,6 +537,11 @@ class Person extends AbstractResourceEntity
         $this->active = $active;
         return $this;
     }
+
+    public function getTasks(\DateTime $startDate = null, \DateTime $endDate = null)
+    {
+        return Task::getByPerson($this, $startDate, $endDate);
+    }
     
     public static function getResourceName()
     {
