@@ -18,7 +18,7 @@ class ProjectTest extends AbstractEntityTest
     public function hydrate()
     {
         /** @var array $data */
-        $data = $this->getTestHydrationData('person.json');
+        $data = $this->getTestHydrationData('project.json');
 
         /** @var Project $project */
         $project = Project::deserialize($data);
