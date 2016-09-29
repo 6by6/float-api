@@ -51,5 +51,16 @@ abstract class AbstractEntityTest extends TestCase
         $this->assertInstanceOf($this->getClass(), $entity);
     }
 
+    protected function getTestHydrationData($filename)
+    {
+        /** @var string $json */
+        $json = file_get_contents(__DIR__ . '/json/' . $filename);
+
+        /** @var array $data */
+        $data = json_decode($json, true);
+
+        return $data;
+    }
+
     abstract public function getClass();
 }
