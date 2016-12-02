@@ -4,6 +4,7 @@ namespace SixBySix\Float\Entity;
 
 use JMS\Serializer\Annotation\Groups;
 use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\SerializedName;
 use SixBySix\Float\FloatClient;
 
 class Department extends AbstractResourceEntity
@@ -13,18 +14,18 @@ class Department extends AbstractResourceEntity
      * @Type("integer")
      * @Groups({"get", "update", "add"})
      */
-    protected $id;
+    protected $departmentId;
 
     /**
      * @var string
      * @Type("string")
      * @Groups({"get", "update", "add"})
      */
-    protected $name;
+    protected $departmentName;
 
     public function getId()
     {
-        return $this->id;
+        return $this->departmentId;
     }
 
     /**
@@ -40,7 +41,7 @@ class Department extends AbstractResourceEntity
      */
     public function getName()
     {
-        return $this->name;
+        return $this->departmentName;
     }
 
     /**
@@ -49,7 +50,7 @@ class Department extends AbstractResourceEntity
      */
     public function setName($name)
     {
-        $this->name = $name;
+        $this->departmentName = $name;
         return $this;
     }
     
