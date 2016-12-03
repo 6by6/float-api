@@ -13,7 +13,8 @@
     "minimum-stability": "dev",
     "require": {
         "jms/serializer": "^1.1",
-        "guzzlehttp/guzzle": "~6.0"
+        "guzzlehttp/guzzle": "~6.0",
+        "athari/yalinqo": "^2.4"
     },
     "autoload" : {
         "psr-4" : {

@@ -506,6 +506,12 @@ class Task extends AbstractResourceEntity
         return $collection;
     }
 
+    /**
+     * @param $person
+     * @param \DateTime|null $startDay
+     * @param null $weeks
+     * @return \YaLinqo\Enumerable
+     */
     public static function getByPerson($person, \DateTime $startDay = null, $weeks = null)
     {
         /** @var int $personId */
@@ -518,7 +524,7 @@ class Task extends AbstractResourceEntity
             'weeks' => $weeks,
         ];
 
-        return static::getAll($opts);
+        return static::query($opts);
     }
 
     public static function formatQueryOpts(array $opts)

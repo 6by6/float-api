@@ -3,10 +3,12 @@
 namespace SixBySix\Float\Entity;
 
 use JMS\Serializer\DeserializationContext;
+use JMS\Serializer\SerializationContext;
 use JMS\Serializer\Serializer;
 use JMS\Serializer\SerializerBuilder;
 use SixBySix\Float\Exception;
 use SixBySix\Float\FloatClient;
+use YaLinqo\Enumerable;
 
 abstract class AbstractEntity
 {
@@ -33,6 +35,20 @@ abstract class AbstractEntity
         }
 
         return $collection;
+    }
+
+    /**
+     * Return a filterable collection of entities
+     *
+     * @see https://github.com/Athari/YaLinqo
+     * @param array $opts
+     * @return Enumerable
+     */
+    public static function query(array $opts = [])
+    {
+        return Enumerable::from(
+            static::getAll($opts)
+        );
     }
 
     public static function getById($id)
@@ -70,7 +86,7 @@ abstract class AbstractEntity
     }
 
     /**
-     * @return mixed
+     * @return Serializer
      */
     protected static function getSerializer()
     {
@@ -80,4 +96,6 @@ abstract class AbstractEntity
 
         return self::$serializer;
     }
+
+    public abstract function getId();
 }

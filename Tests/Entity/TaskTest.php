@@ -2,6 +2,7 @@
 
 namespace SixBySix\Float\Tests\Entity;
 
+use SixBySix\Float\Entity\Project;
 use SixBySix\Float\Entity\Task;
 
 class TaskTest extends AbstractEntityTest
@@ -28,5 +29,23 @@ class TaskTest extends AbstractEntityTest
         $this->assertEquals(2148095612, $task->getId());
         $this->assertEquals("Design", $task->getTaskName());
         $this->assertEquals("See related ticket.", $task->getTaskNotes());
+    }
+
+    /**
+     * @test
+     */
+    public function filter()
+    {
+        $task = Task::query()->where('$x ==> $x->getTaskName() == "Write Yesterday"')->first();
+        $this->assertInstanceOf(Task::class, $task);
+    }
+
+    /**
+     * @_test
+     */
+    public function save()
+    {
+        $task = new Task();
+        $task->setTaskName("Write 'While My Guitar Gently Weeps'");
     }
 }
