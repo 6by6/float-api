@@ -96,6 +96,4 @@ abstract class AbstractEntity
 
         return self::$serializer;
     }
-
-    public abstract function getId();
 }

@@ -9,7 +9,7 @@ abstract class AbstractResourceEntity extends AbstractEntity
 {
     public function save()
     {
-        if ($this->getId()) {
+        if ((int) $this->getId()) {
             // update existing instance
             $payload = $this->serialize(['update']);
             $method = 'put';
@@ -52,6 +52,7 @@ abstract class AbstractResourceEntity extends AbstractEntity
         );
     }
 
+    abstract public function getId();
     abstract public static function getIdKey();
     abstract public static function getIdProp();
     abstract public static function getResourceName();
