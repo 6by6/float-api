@@ -13,14 +13,14 @@ class Milestone extends AbstractResourceEntity
      * @Type("integer")
      * @Groups({"get", "update", "add"})
      */
-    protected $holidayId;
+    protected $milestoneId;
 
     /**
      * @var string
      * @Type("string")
      * @Groups({"get", "update", "add"})
      */
-    protected $holidayName;
+    protected $milestoneName;
 
     /**
      * @var \DateTime
@@ -51,36 +51,36 @@ class Milestone extends AbstractResourceEntity
     /**
      * @return int
      */
-    public function getHolidayId()
+    public function getMilestoneId()
     {
-        return $this->holidayId;
+        return $this->milestoneId;
     }
 
     /**
-     * @param int $holidayId
+     * @param int $milestoneId
      * @return Milestone
      */
-    public function setHolidayId($holidayId)
+    public function setMilestoneId($milestoneId)
     {
-        $this->holidayId = $holidayId;
+        $this->milestoneId = $milestoneId;
         return $this;
     }
 
     /**
      * @return string
      */
-    public function getHolidayName()
+    public function getMilestoneName()
     {
-        return $this->holidayName;
+        return $this->milestoneName;
     }
 
     /**
-     * @param string $holidayName
+     * @param string $milestoneName
      * @return Milestone
      */
-    public function setHolidayName($holidayName)
+    public function setMilestoneName($milestoneName)
     {
-        $this->holidayName = $holidayName;
+        $this->milestoneName = $milestoneName;
         return $this;
     }
 

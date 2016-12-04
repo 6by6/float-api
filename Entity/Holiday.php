@@ -138,8 +138,6 @@ class Holiday extends AbstractResourceEntity
         return $this;
     }
 
-
-
     public static function getResourceEndpoint()
     {
         return 'holidays';
