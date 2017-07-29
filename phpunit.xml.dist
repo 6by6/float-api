@@ -21,6 +21,7 @@
         <whitelist processUncoveredFilesFromWhitelist="true">
             <directory suffix=".php">.</directory>
             <exclude>
+                <directory>./Package.php</directory>
                 <directory>./Tests</directory>
                 <directory>./vendor</directory>
             </exclude>

@@ -21,6 +21,10 @@ class Skill extends AbstractEntity
      */
     protected $level;
 
+    public function getId()
+    {
+    }
+
     /**
      * @return string
      */

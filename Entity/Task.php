@@ -3,6 +3,7 @@
 namespace SixBySix\Float\Entity;
 
 use SixBySix\Float\FloatClient;
+use JMS\Serializer\Annotation\Accessor;
 use JMS\Serializer\Annotation\Groups;
 use JMS\Serializer\Annotation\Type;
 
@@ -91,9 +92,10 @@ class Task extends AbstractResourceEntity
     /**
      * @var float
      * @Type("float")
+     * @Accessor(getter="getHoursPerDay", setter="setHoursPerDay")
      * @Groups({"update", "post", "get"})
      */
-    protected $hoursPDay;
+    protected $hoursPd;
 
     /**
      * @var float
@@ -314,18 +316,18 @@ class Task extends AbstractResourceEntity
     /**
      * @return float
      */
-    public function getHoursPDay()
+    public function getHoursPerDay()
     {
-        return $this->hoursPDay;
+        return $this->hoursPd;
     }
 
     /**
-     * @param float $hoursPDay
+     * @param float $hoursPd
      * @return Task
      */
-    public function setHoursPDay($hoursPDay)
+    public function setHoursPerDay($hoursPd)
     {
-        $this->hoursPDay = $hoursPDay;
+        $this->hoursPd = $hoursPd;
         return $this;
     }
 
@@ -504,6 +506,12 @@ class Task extends AbstractResourceEntity
         return $collection;
     }
 
+    /**
+     * @param $person
+     * @param \DateTime|null $startDay
+     * @param null $weeks
+     * @return \YaLinqo\Enumerable
+     */
     public static function getByPerson($person, \DateTime $startDay = null, $weeks = null)
     {
         /** @var int $personId */
@@ -516,7 +524,7 @@ class Task extends AbstractResourceEntity
             'weeks' => $weeks,
         ];
 
-        return static::getAll($opts);
+        return static::query($opts);
     }
 
     public static function formatQueryOpts(array $opts)
